@@ -76,22 +76,43 @@ function caesarsCipher(stringToDecode) {
             decodedString.push(altKeys[currentIndex])
         }
     }
-    console.log(decodedString.join("").toUpperCase())
+    // console.log(decodedString.join("").toUpperCase())
     return decodedString.join("").toUpperCase()
 }
 
-// public String Encryption(String input, int key){        
-//     StringBuilder encrypted = new StringBuilder(input);        
-//     String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";        
-//     String alphabet2 = alphabet.toLowerCase();        
-//     String keyedalphabet = alphabet.substring(key) + alphabet.substring(0, key);
-// for (int q = 0; q < encrypted.length(); q++) {            
-//         char currChar = encrypted.charAt(q);            
-//         int index = alphabet.indexOf(currChar);            
-//         if (index != -1) {                char newChar = keyedalphabet.charAt(index);                
-//             encrypted.setCharAt(q, newChar);           
-//          }
+function telephoneCheck(str) {
 
+    // const regEx = /\D+/
+    const regEx = /^[0-9]/g
+    // const regEx = /^[0-9]{10}$|^-$/
+    // const regExHyphen = /-/
+
+    if (regEx.test(str) === false){
+        console.log('logged')
+    }
+    const thing = str
+
+    const toRemove = str.match(regEx)
+    // console.log(toRemove.index)
+    const newish = thing.replace(/[\D+]/g, '')
+
+    
+
+
+    // console.log(newish)
+    if (newish.charAt[0] == '1' && newish.length == 11) {
+        console.log('valid')
+        return true
+    } else if (newish.length == 10) {
+        console.log('valid')
+        return true
+    } else {
+        console.log('invalid')
+        return false
+    }
+
+    
+}
 
 function JavaScriptAlgorithmsAndDataStructuresProjects() {
   return (
@@ -100,6 +121,9 @@ function JavaScriptAlgorithmsAndDataStructuresProjects() {
           <h1>{convertToRoman(777)}</h1>
           <h1>Caesar's Cipher</h1>
           <h1>{caesarsCipher("SERR PBQR PNZC!!!")}</h1>
+          <h1>Telephone Check</h1>
+          {/* <h1>{telephoneCheck('7f77.7-7?7!77')}</h1> */}
+          <h1>{telephoneCheck('6130000000')}</h1>
       </div>
   )
 }
