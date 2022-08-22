@@ -81,38 +81,29 @@ function caesarsCipher(stringToDecode) {
 }
 
 function telephoneCheck(str) {
-
-    // const regEx = /\D+/
-    const regEx = /^[0-9]/g
-    // const regEx = /^[0-9]{10}$|^-$/
-    // const regExHyphen = /-/
-
-    if (regEx.test(str) === false){
-        console.log('logged')
-    }
-    const thing = str
-
-    const toRemove = str.match(regEx)
-    // console.log(toRemove.index)
-    const newish = thing.replace(/[\D+]/g, '')
-
-    
-
-
-    // console.log(newish)
-    if (newish.charAt[0] == '1' && newish.length == 11) {
-        console.log('valid')
-        return true
-    } else if (newish.length == 10) {
-        console.log('valid')
-        return true
-    } else {
-        console.log('invalid')
-        return false
-    }
-
-    
+    let answer = false
+	const potentials = [
+		/^\d\d\d\d\d\d\d\d\d\d$/,			// 5555555555
+		/^\(\d\d\d\)\s\d\d\d-\d\d\d\d/,		// (555) 555-5555
+		/^\d\d\d-\d\d\d-\d\d\d\d/,			// 555-555-5555
+		/^1\d\d\d\d\d\d\d\d\d\d/,			// 15555555555
+		/^1\s\d\d\d-\d\d\d-\d\d\d\d/,		// 1 555-555-5555
+		/^1\s\(\d\d\d\)\s\d\d\d-\d\d\d\d/,	// 1 (555) 555-5555
+		/^\(\d\d\d\)\d\d\d-\d\d\d\d/,		// (555)555-5555
+		/^1\(\d\d\d\)\d\d\d-\d\d\d\d/,		// 1(555)555-5555
+		/^1\s\d\d\d\s\d\d\d\s\d\d\d\d/,		// 1 555 555 5555
+		/^\d\d\d\s\d\d\d\s\d\d\d\d/,		// 555 555 5555
+	];
+	answer = potentials.some(x => x.test(str));
+    return answer;
 }
+
+function checkCashRegister(price, cash, cid) {
+    let change
+    return change
+}
+
+
 
 function JavaScriptAlgorithmsAndDataStructuresProjects() {
   return (
@@ -122,8 +113,9 @@ function JavaScriptAlgorithmsAndDataStructuresProjects() {
           <h1>Caesar's Cipher</h1>
           <h1>{caesarsCipher("SERR PBQR PNZC!!!")}</h1>
           <h1>Telephone Check</h1>
-          {/* <h1>{telephoneCheck('7f77.7-7?7!77')}</h1> */}
-          <h1>{telephoneCheck('6130000000')}</h1>
+          <h1>{telephoneCheck('6137770000')}</h1>
+          <h1>Cash Register</h1>
+          <h1>{checkCashRegister(19.5, 20, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]])}</h1>
       </div>
   )
 }
