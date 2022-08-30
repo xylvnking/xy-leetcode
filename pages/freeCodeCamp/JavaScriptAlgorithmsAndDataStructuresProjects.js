@@ -99,7 +99,12 @@ function telephoneCheck(str) {
 }
 
 function checkCashRegister(price, cash, cid) {
-    let change
+    let change = {
+        status: "",
+        change: []
+    }
+
+    
     return change
 }
 
